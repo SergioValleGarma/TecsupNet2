@@ -1,0 +1,54 @@
+﻿<Window x:Class="Clase20240513.ViewPersona"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clase20240513"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical"  HorizontalAlignment="Right">
+                <Label Content="Ingrese los nombres" />
+                <Label Content="Ingrese los apellidos" />
+                <Label Content=" Ingrese la direccion" />
+                <Label Content="  Ingrese el telefono" />
+                <Label Content="     Ingrese el Email" />
+                <Label Content="    Ingrese Fecha Nac" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
+                 <TextBox x:Name="txtNombres" />
+                <TextBox x:Name="txtApellidos" />
+                <TextBox x:Name="txtDireccion" />
+                <TextBox x:Name="txtTelefono" />
+                <TextBox x:Name="txtEmail" />
+                <DatePicker x:Name="dtPiker" />
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1"
+        Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnListar" Content="Listar" Style="{StaticResource styleButtonGreen}"
+     Click="btnListar_Click" />
+            <Button x:Name="btnAgregar" Content="Agregar" Style="{StaticResource styleButtonBlue}" 
+     Click="btnAgregar_Click"/>
+            <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource styleButtonBlue}"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Style="{StaticResource styleButtonBlue}"/>
+        </StackPanel>
+        <DataGrid x:Name="dgDemo" Grid.Row="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}" Width="*"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*"/>
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="*"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Fecha Nacimiento" Binding="{Binding FechaNacimiento}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
